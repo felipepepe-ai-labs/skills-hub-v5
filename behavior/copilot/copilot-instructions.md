@@ -58,9 +58,8 @@ Output tokens are the most expensive. Every reply must respect:
 
 ## Mandatory Workflow
 
-See skill `project-workflow` for the full flow:
 ```
-Vault (Infisical) → SDD → GitFlow feature branch → Implement → Verify → PR → Deploy
+SDD (sdd init/new/apply/verify/archive) → GitFlow feature branch → Implement → Verify → PR → Deploy
 ```
 
 ## Domain-Specific Rules
@@ -72,31 +71,6 @@ Load based on context:
 - `~/.copilot/rules/testing.md` — vitest, coverage, TDD
 - `~/.copilot/rules/typescript.md` — TS patterns, types, generics
 - `~/.copilot/rules/intranet.md` — .casa infrastructure
-
----
-
-## Context Protocol — Optional Layers
-
-Detect before activating layer skills:
-
-### 🏠 Casa layer (private intranet)
-
-**Active when** (first match wins):
-1. `.casa` file exists at project root
-2. Project references `*.casa` domains (maya.casa, infisical.casa, etc.)
-3. User explicitly mentions "intranet", "maya", or "casa project"
-
-**Available skills:** `casa-vault`, `casa-deploy`, `casa-domain`, `casa-atlas`, `infisical-vault`
-
-**Rule:** If context is NOT .casa, do not suggest or use these skills. Ignore silently.
-
-### 💼 Work layer (work / external projects)
-
-**Active when:** No .casa context signals, or user says "work project".
-
-**Active skills:** Universal only (SDD, code-reviewer, test-runner, etc.)
-
-> To add a new project to the casa layer: `echo "casa" > .casa` at the project root.
 
 ---
 
@@ -116,7 +90,6 @@ Load the matching skill BEFORE taking action. Multiple skills can apply simultan
 | Any SDD command (init/new/apply/verify/archive/status) | `sdd` |
 | Creating or improving AI agent skills | `skill-creator` |
 | Finding or installing skills | `find-skills` |
-| Auditing or restructuring the skills catalog | `skills-catalog-maintainer` |
 
 ### Code quality
 | Context | Skill |
@@ -131,22 +104,8 @@ Load the matching skill BEFORE taking action. Multiple skills can apply simultan
 ### Workflow
 | Context | Skill |
 |---------|-------|
-| Creating a PR, GitFlow branch preparation | `branch-pr` |
-| Building an MCP server | `mcp-builder` |
-| OpenAI API, model selection, SDK usage | `openai-docs` |
-
-### HyperFrames & animation
-| Context | Skill |
-|---------|-------|
-| HyperFrames compositions, CLI | `hyperframes-cli` |
-| GSAP animations | `gsap` |
-| Anime.js animations | `animejs` |
-| Lottie animations | `lottie` |
-| Three.js / WebGL | `three` |
-| CSS animations / WAAPI | `css-animations` |
-| Tailwind CSS v4 in HyperFrames | `tailwind` |
-| Remotion → HyperFrames conversion | `remotion-to-hyperframes` |
-| Website → HyperFrames conversion | `website-to-hyperframes` |
+| Commit, merge, release, PR creation, "which branch" | `gitflow` |
+| Planning commits as reviewable work units | `work-unit-commits` |
 
 ---
 
