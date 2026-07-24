@@ -185,61 +185,61 @@
       "description": "Plan a refactor before implementation.",
       "agent": "architect",
       "model": "ollama/qwen3.6:27b",
-      "template": "Usa el agente architect. Si el usuario dio argumentos en el slash command, tomalos como scope. Analiza el refactor sin editar codigo salvo peticion explicita. Entrega objetivo, riesgos, archivos afectados, dependencias, pasos pequenos y rollback. Skills sugeridas si existen: sdd-explore, sdd-design, sdd-tasks, db-architect, project-workflow."
+      "template": "Usa el agente architect. Si el usuario dio argumentos en el slash command, tomalos como scope. Analiza el refactor sin editar codigo salvo peticion explicita. Entrega objetivo, riesgos, archivos afectados, dependencias, pasos pequenos y rollback. Skills sugeridas si existen: sdd, db-architect."
     },
     "implement": {
       "description": "Implement or fix with small reviewable edits.",
       "agent": "coder",
       "model": "ollama/qwen3.6:27b",
-      "template": "Usa el agente coder. Si el usuario dio argumentos en el slash command, tomalos como scope. Lee antes de editar. Implementa con cambios pequenos y revisables, sin inventar APIs. Skills sugeridas si existen: sdd-apply, branch-pr, test-runner."
+      "template": "Usa el agente coder. Si el usuario dio argumentos en el slash command, tomalos como scope. Lee antes de editar. Implementa con cambios pequenos y revisables, sin inventar APIs. Skills sugeridas si existen: sdd, gitflow, test-runner."
     },
     "review-security": {
       "description": "Run a conservative security review.",
       "agent": "security",
       "model": "ollama/qwen3.6:27b",
-      "template": "Usa el agente security. Si el usuario dio argumentos en el slash command, tomalos como scope. Revisa OWASP Top 10, secretos, autorizacion, validacion, logs y dependencias. Por defecto no edites codigo; propone findings priorizados. Skills sugeridas si existen: code-reviewer, red-team-offensive, infisical-vault."
+      "template": "Usa el agente security. Si el usuario dio argumentos en el slash command, tomalos como scope. Revisa OWASP Top 10, secretos, autorizacion, validacion, logs y dependencias. Por defecto no edites codigo; propone findings priorizados. Skills sugeridas si existen: code-reviewer, red-team-offensive."
     },
     "test-e2e": {
       "description": "Design or run end-to-end tests.",
       "agent": "tester",
       "model": "ollama/qwen3.6:27b",
-      "template": "Usa el agente tester. Si el usuario dio argumentos en el slash command, tomalos como scope. Prioriza E2E reproducible, Playwright cuando exista, y diagnostico claro. No borres tests para pasar builds. Skills sugeridas si existen: test-runner, sdd-verify."
+      "template": "Usa el agente tester. Si el usuario dio argumentos en el slash command, tomalos como scope. Prioriza E2E reproducible, Playwright cuando exista, y diagnostico claro. No borres tests para pasar builds. Skills sugeridas si existen: test-runner, sdd."
     },
     "test-dotnet": {
       "description": "Review or implement .NET test coverage.",
       "agent": "tester",
       "model": "ollama/qwen3.6:27b",
-      "template": "Usa el agente tester. Si el usuario dio argumentos en el slash command, tomalos como scope. Trabaja sobre NUnit, SpecFlow o el stack de test .NET que exista. Si no hay skill dedicada, sigue las convenciones del repo y manten cambios pequenos. Skills sugeridas si existen: test-runner, sdd-verify."
+      "template": "Usa el agente tester. Si el usuario dio argumentos en el slash command, tomalos como scope. Trabaja sobre NUnit, SpecFlow o el stack de test .NET que exista. Si no hay skill dedicada, sigue las convenciones del repo y manten cambios pequenos. Skills sugeridas si existen: test-runner, sdd."
     },
     "test-java": {
       "description": "Review or implement Java test coverage.",
       "agent": "tester",
       "model": "ollama/qwen3.6:27b",
-      "template": "Usa el agente tester. Si el usuario dio argumentos en el slash command, tomalos como scope. Trabaja sobre JUnit y pruebas de integracion segun el repo. Si no hay skill dedicada, sigue las convenciones del proyecto. Skills sugeridas si existen: test-runner, sdd-verify."
+      "template": "Usa el agente tester. Si el usuario dio argumentos en el slash command, tomalos como scope. Trabaja sobre JUnit y pruebas de integracion segun el repo. Si no hay skill dedicada, sigue las convenciones del proyecto. Skills sugeridas si existen: test-runner, sdd."
     },
     "docs": {
       "description": "Write or update technical documentation.",
       "agent": "documenter",
       "model": "ollama/qwen3.6:27b",
-      "template": "Usa el agente documenter. Si el usuario dio argumentos en el slash command, tomalos como scope. Crea documentacion mantenible, con comandos, supuestos y limites. Skills sugeridas si existen: atlas-docs, casa-atlas, skill-creator, project-workflow."
+      "template": "Usa el agente documenter. Si el usuario dio argumentos en el slash command, tomalos como scope. Crea documentacion mantenible, con comandos, supuestos y limites. Skills sugeridas si existen: skill-creator, cognitive-doc-design."
     },
     "adr": {
       "description": "Draft or update an ADR.",
       "agent": "documenter",
       "model": "ollama/qwen3.6:27b",
-      "template": "Usa el agente documenter. Si el usuario dio argumentos en el slash command, tomalos como scope. Redacta una ADR con contexto, decision, consecuencias, riesgos y alternativas. Skills sugeridas si existen: sdd-design, atlas-docs, project-workflow."
+      "template": "Usa el agente documenter. Si el usuario dio argumentos en el slash command, tomalos como scope. Redacta una ADR con contexto, decision, consecuencias, riesgos y alternativas. Skills sugeridas si existen: sdd, cognitive-doc-design."
     },
     "analyze-legacy": {
       "description": "Inspect legacy systems before changes.",
       "agent": "repo-agent",
       "model": "ollama/devstral:latest",
-      "template": "Usa el agente repo-agent. Si el usuario dio argumentos en el slash command, tomalos como scope. Lee antes de editar y planifica antes de cambios grandes. Preserva compatibilidad en .NET Framework y WebForms salvo peticion explicita. Skills sugeridas si existen: sdd-explore, sdd-design, project-workflow."
+      "template": "Usa el agente repo-agent. Si el usuario dio argumentos en el slash command, tomalos como scope. Lee antes de editar y planifica antes de cambios grandes. Preserva compatibilidad en .NET Framework y WebForms salvo peticion explicita. Skills sugeridas si existen: sdd."
     },
     "sql-review": {
       "description": "Review SQL schema, migrations and query risks.",
       "agent": "architect",
       "model": "ollama/qwen3.6:27b",
-      "template": "Usa el agente architect. Si el usuario dio argumentos en el slash command, tomalos como scope. Revisa esquema, migraciones, indices, seguridad y riesgos de queries. Por defecto entrega findings y plan; no edites salvo peticion explicita. Skills sugeridas si existen: db-architect, sdd-design, code-reviewer."
+      "template": "Usa el agente architect. Si el usuario dio argumentos en el slash command, tomalos como scope. Revisa esquema, migraciones, indices, seguridad y riesgos de queries. Por defecto entrega findings y plan; no edites salvo peticion explicita. Skills sugeridas si existen: db-architect, sdd, code-reviewer."
     }
   }
 }
