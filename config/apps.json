@@ -21,7 +21,7 @@
       "skillVariants": ["common", "copilot-only"],
       "configFiles": [
         {
-          "source": "behavior/copilot/copilot-instructions.md",
+          "source": "behavior/shared/agent-constitution.md",
           "target": {
             "linux": "~/.copilot/copilot-instructions.md",
             "windows": "%USERPROFILE%/.copilot/copilot-instructions.md"
@@ -59,7 +59,7 @@
       ],
       "configFiles": [
         {
-          "source": "behavior/claude/CLAUDE.md",
+          "source": "behavior/shared/agent-constitution.md",
           "target": {
             "linux": "~/.claude/CLAUDE.md",
             "windows": "%USERPROFILE%/.claude/CLAUDE.md"
